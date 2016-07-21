@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Transistors, wut?</title>
+
+		<meta name="description" content="A quick transistors introduction for devs, what and why">
+		<meta name="author" content="Eric Thompson">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="../templates/reveal_js_puppet.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+      <div class='footer'>
+        <img src="images/P-Icon-Amber-Black-sm.png" style="width:5%" alt="Puppet logo"/>
+      </div>
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+        <section>
+          <h1>What's a Transistor?</h1>
+            <img src="https://d.gr-assets.com/hostedimages/1460560496ra/18759106.gif" alt="transmission line voltage regulator" style="width:50.0%" />
+          <aside class="notes">
+            <ul>
+              <li>in my second life i was an EE
+              <li>in my first life i was CS
+            </ul>
+          </aside>
+        </section>
+
+				<section>
+
+					<section>
+            <h2>This?</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Distribution_Voltage_regulators.JPG" alt="transmission line voltage regulator" style="width:50.0%" />
+            <aside class="notes" data-markdown>
+- not this
+- this is a distribution voltage regulator
+            </aside>
+          </section>
+
+					<section>
+            <h2>This?</h2>
+            <img src="http://www.tubelab.com/images/AssemblyManualTubelabSE/Capacitors/C4Large.jpg" alt="large board capacito" style="width:50.0%" />
+            <aside class="notes" data-markdown>
+- nope
+- this is a discrete capacitor soldered to a board
+            </aside>
+          </section>
+
+					<section>
+            <h2>This?</h2>
+            <img src="images/first-diode.jpeg" alt="the first pn junction" style="width:50.0%" />
+            <aside class="notes" data-markdown>
+- it's the first p-n junction
+- more on this later
+            </aside>
+          </section>
+
+					<section>
+            <h2>This one</h2>
+            <img src="http://www.beatriceco.com/bti/porticus/bell/images/transistor1.jpg" alt="first transistor" style="width:50.0%" /><br>
+            Bell Labs, 1947
+            <aside class="notes" data-markdown>
+            </aside>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>So What?</h2>
+          <img src="http://www.siliconmaterials.com/images/slides/iStock_000011002999Medium-930x355.jpg" alt="wafer of chips" style="width:50.0%" /><br>
+          they're in everything:
+          <div style="position:relative;">
+            <p class="fragment current-visible" style="position:absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;">cars</p>
+            <p class="fragment current-visible" style="position:absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;">phones</p>
+            <p class="fragment current-visible" style="position:absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;">toys</p>
+            <p class="fragment current-visible" style="position:absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;">lightbulbs</p>
+            <p class="fragment current-visible" style="position:absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;">toothbrushes</p>
+            <p class="fragment" style="position:absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;"><i>software</i> runs on CPUs, <i>made</i> of transistors...<p>&nbsp;</p>
+          </div>
+          <p class="fragment">millions of them</p>
+        </section>
+
+        <section>
+
+          <section>
+          <h2>What are they?</h2>
+          </section>
+
+          <section>
+            <h2>diode</h2>
+            <img style="width: 50%" src="images/diode.png" alt="diode model" />
+            <aside class="notes" data-markdown>
+- anyone know what n-type or p-type means?
+- seriously, there will be a quiz on this later
+- what happens at the junction in the middle?
+- what happens when you apply a voltage (bias)?
+  - arrow is direction of conventional current
+            </aside>
+          </section>
+
+          <section>
+            <h2>diode</h2>
+            <img style="width: 50%" src="http://3.bp.blogspot.com/-U9YD8JT3Pf0/T5lHLbtySEI/AAAAAAAAAHQ/EGU0X1_TTtc/s1600/diode1.gif" alt="diode model" />
+            <aside class="notes" data-markdown>
+- at "zero bias" when materials are combined, a depletion region forms
+  - a region where the carriers physically diffuse across the boundary due to lower concentrations
+  - some current flows, but it's small, solely due to "drift"
+- at "forward bias" the depletion region shrinks and we acheive a stronger "diffusion current"
+- at "negative bias" what happens?
+  - the depletion region grows. so?
+  - the diffusion current is almost zero and we have a small reverse "saturation current"
+  - more on these later...
+            </aside>
+          </section>
+
+          <section>
+            <h2>bipolar</h2>
+            <img style="width: 70%" src="https://upload.wikimedia.org/wikipedia/commons/1/13/NPN_BJT_Basic_Operation_%28Active%29.svg" alt="bipolar (npn) model" /><br>
+            1951
+            <aside class="notes" data-markdown>
+- amplifiers
+- could be decent at switching
+- constant power consumption
+            </aside>
+          </section>
+
+          <section>
+            <h2>FET/MOS</h2>
+            <img style="width: 70%" src="https://eewiki.net/download/attachments/49414403/Animation_pdep.gif?version=1&modificationDate=1446485218977&api=v2" alt="p-type FET" /><br>
+            idea patented in 1925, first manufactured in 1959 @ bell labs
+            <aside class="notes" data-markdown>
+- Field Effect Transistor
+- Metal Oxide Semiconductor
+- can be used as a switch
+- also useful as amplifier/modulator
+- less power consumption
+- ironically invented at bell labs, but deemed unattractive for manufacturing
+- now the definition of precise manufacturing, down to 10nm
+            </aside>
+          </section>
+
+          <section>
+            <h2>inversion</h2>
+            <img style="width: 70%" src="http://fourier.eng.hmc.edu/e84/lectures/figures/MOSFET.gif" alt="channel inversion diagram" /><br>
+            <aside class="notes" data-markdown>
+- what would happen without the biases applied?
+- why does a reverse bias work for the p-type FET?
+            </aside>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Where do you get such wonderful toys?</h2>
+            <img style="width: 60%" src="https://dmseg5.case.edu/Groups/French/Private/DW8-UPenn/images/lithog1.jpg" alt="lithographic manufacturing" /><br>
+            <aside class="notes" data-markdown>
+- photolithography
+- what happens when you try to put metal on there?
+- what happens when you try to put copper on there?
+- why copper?
+- what happens when the features are smaller than your light wavelength?
+            </aside>
+          </section>
+
+          <section>
+            <h2>Ever shrinking features</h2>
+            <img style="width: 50%" src="images/smaller_than_light.png" alt="How to shrink light" /><br>
+            <aside class="notes" data-markdown>
+- what happens when the features are smaller than your light wavelength?
+- 193nm = deep ultra violet (DUV)
+- EUV = extreme ultra violet, expected to be 13.5 nm
+            </aside>
+          </section>
+
+          <section>
+            <h2>Shrinkage</h2>
+            <img style="width: 70%" src="images/why_moore_matters.png" alt="Why Moore matters" /><br>
+            <aside class="notes" data-markdown>
+- smaller, faster, less power
+- Gordon Moore: While at Fairchild as Director of R&D: 1965!
+            </aside>
+          </section>
+
+          <section>
+            <h2>Shrinkage</h2>
+            <table>
+              <tr><td>10 µm 1971</td><td>6 µm 1974</td><td>3 µm 1977</td></tr>
+              <tr><td>1.5 µm 1982</td><td>1 µm 1985</td><td>800 nm 1989</td></tr>
+              <tr><td>600 nm 1994</td><td> 350 nm 1995</td><td> 250 nm 1997</td><td> 180 nm 1999</td></tr>
+              <tr><td>130 nm 2001</td><td> 90 nm 2004</td><td> 65 nm 2006</td><td> 45  nm 2008</td></tr>
+              <tr><td>32  nm 2010</td><td> 22  nm 2012</td><td> 14  nm 2014</td><td> 10  nm 2017</td></tr>
+              <tr><td>7   nm ~2020</td><td> 5   nm ~2023</td></tr>
+            </table>
+          </section>
+
+          <section>
+            <h2>OMG expensive</h2>
+            <img style="width: 40%" src="https://upload.wikimedia.org/wikipedia/en/4/42/Semiconductor_company_brand.jpg" alt="semiconductor manufacturing consolidation" /><br>
+            <aside class="notes" data-markdown>
+- consolidation
+- Intel not shown as it is still vertically integrated (fabs, design, cpu, memory, sales)
+- Intel's Fab42 in AZ: 14nm: $5B [https://en.wikipedia.org/wiki/List_of_semiconductor_fabrication_plants]
+- Intel D1X plant: Hillsboro, OR! (14nm 2013)
+- IBM/GlobalFoundries in NY: 14nm: $4.6B
+- Microchip, Gresham, OR
+- IBM, Essex Junction, VT (200mm wafers, SiGe)
+- largest in Thaiwan (TSMC)
+            </aside>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>CMOS</h2>
+          <img style="width: 40%" src="https://upload.wikimedia.org/wikipedia/commons/8/81/CMOS_Inverter.svg" alt="CMOS inverter schematic" /><br>
+          Frank Wanlass 1963
+          <aside class="notes" data-markdown>
+- "complementary" MOS
+- high noise immunity
+- low standby (non-switching) power use
+  - very low current flow when not switching
+          </aside>
+        </section>
+
+        <section>
+          <h2>Logic Synthesis</h2>
+          <img style="width: 60%" src="http://www.ee.virginia.edu/~mrs8n/soc/gifs/guiafter.gif" alt="RTL logic compiler" /><br>
+
+          <aside class="notes" data-markdown>
+- sequential logic
+- finite state machines and boolean logic to CMOS gates
+  - pipelines
+- can only be accomplished by logic compilers using multi-level boolean logic tables
+  - think high-n multi-variable calculus
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Modeling</h2>
+            <aside class="notes" data-markdown>
+- simple materials, very complex physical phenomena
+- models aid simulations to determine physical operation of devices before manufacturing (days to months)
+- models device behavior on physical characteristics and fundamental physics
+- some models use curve fitting of measured data (empirical models) but are limited in scope
+            </aside>
+          </section>
+
+          <section>
+            <h2>FET small signal equivalent circuit</h2>
+          <img style="width: 40%" src="http://cp.literature.agilent.com/litweb/pdf/iccap2008/icmdl/images/icmdl0151.gif" alt="cross section schematic" />
+          <img style="width: 40%" src="http://staff.ee.sun.ac.za/cvanniekerk/images/fetmodel.gif" alt="FET small-signal equivalent circuit" /><br>
+            <aside class="notes" data-markdown>
+- model of a FETs drain current vs drain voltage for several values of Gate voltage
+- measurement would (hopefully) show something similar
+- tune the model to match the measurements
+            </aside>
+          </section>
+
+          <section>
+            <h2>FET modeling of IdVd</h2>
+          <img style="width: 60%" src="https://upload.wikimedia.org/wikipedia/commons/1/18/IvsV_mosfet.svg" alt="Drain bias vs Drain current" /><br>
+            <aside class="notes" data-markdown>
+- model of a FETs drain current vs drain voltage for several values of Gate voltage
+- measurement would (hopefully) show something similar
+- tune the model to match the measurements
+            </aside>
+          </section>
+
+          <section>
+            <h2>FET modeling</h2>
+          <img style="width: 60%" src="http://staff.ee.sun.ac.za/cvanniekerk/images/NonlinearModelConstructionGUI_v2.gif" alt="typical modeling 'gui'" /><br>
+            <aside class="notes" data-markdown>
+- typical modeling GUI #shudder
+- tune a bunch of params, watch curves converge (hopefully semi-automated)
+            </aside>
+          </section>
+
+          <section>
+            <h2>statistical modeling</h2>
+          <img style="width: 60%" src="http://www.silvaco.com/products/interconnect_modeling/full_chip_lpe_rule_file_generation/exact9b.gif" alt="wiring capacitance variation on-chip" /><br>
+            <aside class="notes" data-markdown>
+            </aside>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>physical limits of scaling</h2>
+          <img style="width: 40%" src="http://cdn.phys.org/newman/gfx/news/hires/2015/55def3018ca56.png" alt="scaling limits" /><br>
+“even with super-aggressive efforts, we'll get to the 2–3-nanometre limit, where features are just 10 atoms across. Is that a device at all?” - Paolo Gargini
+            <aside class="notes" data-markdown>
+- Poalo Gargini, chair of ITRS: "International Technology Roadmap for Semiconductors"
+- 2020s (it's 2016, remember?)
+- "quantum effects dominate"
+  - aka: unpredictable carriers
+  - rampant, uncontrollable leakage and power consumption, heat
+            </aside>
+          </section>
+
+          <section>
+            <h2>the dimnesions we're talking about</h2>
+            <img style="width: 60%" src="http://electronics360.globalspec.com/images/assets/016/16/45b5e5f1-a1ba-426f-a472-5cf2a2d8b89f.png" alt="scaling comparison" /><br>
+            <aside class="notes" data-markdown>
+            </aside>
+          </section>
+
+          <section>
+            <h2>FET actual cross section</h2>
+          <img style="width: 40%" src="http://lamp.tu-graz.ac.at/~hadley/nanoscience/week5/transistor.gif" alt="actual cross section" /><br>
+            <aside class="notes" data-markdown>
+- STEM cross section
+  - scanning tunneling electron microscope
+  - much destruction
+- gross
+  - thus the physical modeling
+            </aside>
+          </section>
+
+          <section>
+            <h2>full stack chip cross section</h2>
+          <img style="width: 70%" src="http://what-when-how.com/wp-content/uploads/2011/03/tmp47541_thumb1.jpg" alt="actual cross section" /><br>
+            <aside class="notes" data-markdown>
+            </aside>
+          </section>
+
+        </section>
+
+         <section>
+           <img style="width: 70%" src="http://i.imgur.com/kQXDc8s.gif" alt="fin." />
+        </section>
+<!--fin-->
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
